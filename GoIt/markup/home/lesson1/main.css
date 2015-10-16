@@ -1,0 +1,35 @@
+body {
+background-color: #eeeeee;
+}
+
+.content {
+height: 750px;
+width: 510px;
+margin: 0 auto;
+background-color: #ffffff;
+}
+
+h2 {
+padding-top: 53px;
+text-align: center;
+}
+
+img {
+
+width: 130px;
+}
+
+.photo {
+text-align: center;
+}
+
+hr {
+width: 410px;
+margin-left: 50px;
+}
+
+p, li {
+	font-size: 13pt;
+	margin: 0 60px 0 60px;
+	line-height: 1.5em;
+}
