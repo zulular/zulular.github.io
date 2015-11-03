@@ -63,49 +63,66 @@ background: url("../img/bg.png") repeat-x;
 
 
 /* ---NAVIGATION--- */
+.nav {
+     background: rgb(55,55,55); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(55,55,55,1) 0%, rgba(48,48,48,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(55,55,55,1)), color-stop(100%,rgba(48,48,48,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(55,55,55,1) 0%,rgba(48,48,48,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(55,55,55,1) 0%,rgba(48,48,48,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(55,55,55,1) 0%,rgba(48,48,48,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(55,55,55,1) 0%,rgba(48,48,48,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#373737', endColorstr='#303030',GradientType=0 ); /* IE6-9 */
 
-.navigation {
-     background: #323232;
-
-}
-.nav-list {
-     float:left;
-     color: #fff;
-     padding:8px 33px;
-     display: block;
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+     border-bottom: 1px solid #000;
 }
 
-.nav a{
-     color: #fff;
-     text-decoration: none;
-}
-.nav-drop a{
-     float:none;
-     padding: 7px 10px;
-     line-height:14px;
-}
-.nav a:hover{
-     background: #666;
-     display:block;
-}
-.nav-list {
+.nav li {
      position: relative;
+     float:left;
 }
 
-.nav-drop {
+.triangle:after {
+     content: '';
+     display: block;
      position: absolute;
-     width: 100%;
-     display:none;
+     top: 50%;
+     margin-top: -2px;
+     right: 20px;
+     height: 6px;
+     width: 5px;
+     background: url(../img/triangle-down.png);
 }
 
+.nav li a {
+     position: relative;
+     text-decoration: none;
+     color:white;
+     display: block;
+     line-height: 28px;
+     padding: 0 33px;
 }
-.nav-list:hover .nav-drop{
+
+.nav ul a{
+     padding-left: 10px;
+}
+
+.nav ul {
+     position: absolute;
+     display:none;
+     width:150px;
+     border-top: 1px solid #000;
      background: #303030;
-     width: 150px;
-     text-align: center;
-     display:block;
-     z-index:2;
+     top:100%;
+     left:23px;
+     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
 }
+
+.nav li:hover ul{
+ display: block;
+ z-index:100;
+}
+
 /* ---CONTENT--- */
 
 .content {
