@@ -1,0 +1,99 @@
+body {
+	background-color: #ccc;
+}
+
+.wrapper	{
+	width: 535px;
+	margin: 0 auto;
+}
+
+.line6, .line7 {
+	height: 35px;
+}
+
+.line1, .line4, .line5 {
+	height: 50px;
+}
+
+.line2, .line3 {
+
+	height: 135px;
+}
+
+.width50 {
+	width: 50px;
+}
+
+.width75 {
+	width: 75px;
+}
+
+.width90 {
+	width: 90px;
+}
+
+.width135 {
+	width: 135px;
+}
+
+/* ---TABLE--  */
+
+
+table {
+	border-collapse: collapse;
+}
+
+
+.line7, .line6, .line4 {
+	border-top: 9px solid black;
+}
+
+table tr:nth-child(2),
+table tr:nth-child(3) {
+	border-top: 9px solid black;
+	border-bottom: 9px solid black;
+}
+
+.line1 td:nth-child(2),
+.line2 td:nth-child(2),
+.line3 td:nth-child(2),
+.line3 td:nth-child(2),
+.line4 td:nth-child(2),
+.line4 td:nth-child(3),
+.line5 td:nth-child(2),
+.line5 td:nth-child(3),
+.line5 td:nth-child(4),
+.line6 td:nth-child(1)
+ {
+	border-left: 9px solid black;
+	border-right: 9px solid black;
+}
+
+.line5 td:nth-child(2),
+.line5 td:nth-child(3),
+.line5 td:nth-child(5) {
+	border-top: 9px solid black;
+}
+
+/* ---COLORS--- */
+
+.orange {
+	background-color: #ff5f45;
+}
+
+.black {
+
+	background-color: #111;
+}
+
+.yellow {
+	background-color: #f0e649;
+}
+
+.blue {
+	background-color: #0c5092;
+}
+
+.white {
+	background-color: #fff;
+}
