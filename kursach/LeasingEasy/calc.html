@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="calc.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+	    <div class="header">
+		     <div class="header-article clearfix">
+			      <a href="index.html"><img class="logo" src="img/logo-super.png" alt=""></a>
+		         <div class="author">
+		             <p>Програмна реалізація</p>
+		             <p>моделей діяльності лізингової компанії</p>
+		             <p>студента 1 групи, 4 курсу ФОАЕК</p>
+		             <p>Лисенка Сергія</p>
+                  </div>
+              </div>
+              	
+              </div>
+	    		<div class="navigation "> 
+	    			<ul class="nav clearfix">
+	    				<li><a href="index.html">Головна</a></li>
+	    				<li><a href="calc.html">Розрахунок платежів</a></li>
+	    				<li><a href="formuls.html">Математичні моделі</a></li>
+	    				<li><a href="contacts.html">Контакти</a></li>
+	    			</ul>
+	    				    	</div>
+		
+	    
+
+	    <div class="content">
+
+<div class="form-calc">
+
+<form class="form-main">
+
+	<table>
+    	<tr>
+	<td><h2>Введіть показники:</h2></td>
+	</tr>
+    	    <td><p>Вартість предмету лізингу:</p></td>
+	    <td><input type="text" id="rangevalue1" value="1000000" oninput="value=check(value,3000000), ValueOfTheObject.value = value" >
+	    <input type="range" id="ValueOfTheObject" value="1000000" min="5000" step="1" max="3000000" onchange="rangevalue1.value = value" placeholder="10000"></td>
+    </tr>
+    <tr>
+	    <td><p>Перший внесок (% від вартості):</p></td> 
+	    <td><input type="text" id="rangevalue2" value="30" oninput="value = check(value,99), FirstPay.value = value">
+	    <input type="range" id="FirstPay" value="30" min="1" max="99" onchange="rangevalue2.value = value"></td>
+    </tr>
+    <tr>
+	    <td><p>Викупна вартість (% від вартості):</p></td>
+	    <td><input type="text" id="rangevalue3" value="1" oninput="value = check(value,50),BuyOut.value = value">
+	    <input type="range" id="BuyOut" value="1" min="0.5" step="0.5" max="50" onchange="rangevalue3.value = value"></td>	
+    </tr>
+<tr>
+	<td><p>Строк лізингу (в місяцях):</p></td>
+	<td><input type="text" id="rangevalue4" value="24" oninput="value = check(value,60),Term.value = value">
+	<input type="range" id="Term" value="24" min="12" max="60" onchange="rangevalue4.value = value"></td>
+</tr>
+<tr>
+	<td><p>Ставка по лізингу (% річних):</p></td>
+	<td><input type="text" id="rangevalue5" value="9.9" oninput="value = check(value,30.00),UnpaidPartPay.value = value">
+	<input type="range" id="UnpaidPartPay" value="9.9" min="9.9" step="0.1" max="30.00" onchange="rangevalue5.value = value"></td>
+</tr>
+<tr>
+	<td><p>Страхування (% за 1 рік):</p></td>
+	<td><input type="text" id="rangevalue6" value="5.00" oninput="value = check(value,15.00),Insurance.value = value">
+	<input type="range" id="Insurance" value="5" min="0.00" ,="" step="0.01" max="15.00" onchange="rangevalue6.value = value;"></td>
+</tr></tbody></table>
+</form>
+<button type="button" onclick="table()">Розрахувати</button>
+<form id="calc">
+<table id="info" cellpadding="0" style="visibility:hidden">
+<tbody><tr>
+	<td><p></p><h2>Умови розрахунку лізингу:</h2><p></p></td>
+	</tr>
+	<tr>
+	<td><p>Вартість предмету лізингу:</p></td>
+	<td><textarea rows="1" cols="20" id="infoValueOfTheObject" readonly="">G3</textarea></td>
+	</tr>
+	<tr>
+	<td><p>Перший внесок (% від вартості):</p></td>
+	<td><textarea rows="1" cols="20" id="infoFirstPay" readonly="">(G5*100).toFixed(0)</textarea></td>
+	</tr>
+	<tr>
+	<td><p>Викупна вартість (% від вартості):</p></td>
+	<td><textarea rows="1" cols="20" id="infoBuyOut" readonly="">(G6/G3*100)</textarea></td>
+	</tr>
+	<tr>
+	<td><p>Строк лізингу (в місяцях):</p></td>
+	<td><textarea rows="1" cols="20" id="infoTerm" readonly="">G7</textarea></td>
+	</tr>
+	<tr>
+	<td><p>Ставка по лізингу (% річних):</p></td>
+	<td><textarea rows="1" cols="20" id="infoUnpaidPartPay" readonly="">(G8*100).toFixed(1)</textarea></td>
+	</tr>
+	<tr>
+	<td><p>Страхування (% за 1 рік):</p></td>
+	<td><textarea rows="1" cols="20" id="infoInsurance" readonly="">(G9*100).toFixed(2)</textarea></td>
+	</tr>
+</tbody></table>
+<table class="calc" id="table" border="1" cellpadding="8" style="visibility:hidden">
+	<tbody><tr>
+	<th rowspan="3">Період</th>
+	<th colspan="3"><align=center>Компенсація</align=center></th>
+	<th rowspan="3"><align=center>Комісія</align=center></th>
+	<th rowspan="3"><align=center>Усього</align=center></th>
+	</tr><tr>
+	</tr><tr>
+	<th><align=center>Сума з ПДВ</align=center></th>
+	<th><align=center>Сума без ПДВ</align=center></th>
+	<th><align=center>ПДВ</align=center></th>
+	</tr><tr>
+</tr></tbody></table>
+<button type="button" onclick="printdiv(calc)" style="visibility:hidden" id="print">Друкувати результат</button>
+<button type="button" onclick="tableToExcel('calc')" style="visibility:hidden" id="excell">Зберегти в Excel</button> 
+</form>
+
+
+
+
+</div>
+
+    </div>
+</body>
+</html>
